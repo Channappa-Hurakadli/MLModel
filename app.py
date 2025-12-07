@@ -14,15 +14,16 @@ import google.generativeai as genai
 from PIL import Image
 
 # --- PASTE YOUR GOOGLE AI API KEY HERE ---
-GOOGLE_AI_API_KEY = 'AIzaSyCPa5hQ7k8n76ZkDhO8QPQLwIC8mp3e_kE' # <-- MAKE SURE THIS IS NOT THE PLACEHOLDER
+# GOOGLE_AI_API_KEY = '' # <-- MAKE SURE THIS IS NOT THE PLACEHOLDER
 # -------------------------------------------
+GOOGLE_AI_API_KEY = os.getenv('GOOGLE_AI_API_KEY')
 
 # --- FIX: Add a check for the API key ---
-if GOOGLE_AI_API_KEY != 'AIzaSyCPa5hQ7k8n76ZkDhO8QPQLwIC8mp3e_kE':
-    print("="*50)
-    print("WARNING: GOOGLE_AI_API_KEY is not set in app.py!")
-    print("Soil image classification will fail.")
-    print("="*50)
+# if GOOGLE_AI_API_KEY != '':
+#     print("="*50)
+#     print("WARNING: GOOGLE_AI_API_KEY is not set in app.py!")
+#     print("Soil image classification will fail.")
+#     print("="*50)
     
 try:
     genai.configure(api_key=GOOGLE_AI_API_KEY)
